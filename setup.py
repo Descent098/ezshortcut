@@ -43,9 +43,8 @@ setuptools.setup(
     "winshell", 
         ],
     extras_require = {
-        "dev" : ["nox",    # Used to run automated processes
-                "pytest",  # Used to run the test code in the tests directory
-                "mkdocs"], # Used to create HTML versions of the markdown docs in the docs directory
+        "dev" : ["pytest",  # Used to run the test code in the tests directory
+                ],
     },
     classifiers = [
         "Programming Language :: Python :: 3",
