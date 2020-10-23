@@ -1,12 +1,8 @@
-# package_name
+![shortcut logo](https://raw.githubusercontent.com/Descent098/ezshortcut/master/.github/logo.png)
 
-*A generic python PyPi project template. Replace this line with a project description*
+# EZ Shortcut
 
----
-
-**This file is meant to be a template but my recommendation is to fork it and make it your own for what suits your projects. After completing the TODO section take a look at the end of the file for final touches.
-
-Video guide for usage of the package template can be found [here](https://www.youtube.com/watch?v=6j1I3mC0BR0).**
+*Generate shortcuts to executables and/or folders*
 
 ## TODO
 
