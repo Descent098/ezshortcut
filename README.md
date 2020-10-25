@@ -4,112 +4,95 @@
 
 *Generate shortcuts to executables and/or folders*
 
-## TODO
-
-- [ ] Setup a [github project board](https://docs.github.com/en/free-pro-team@latest/github/managing-your-work-on-github/about-project-boards). Here are a few examples of some boards; [sdu](https://github.com/Descent098/sdu/projects), [pystall](https://github.com/Descent098/pystall), [ahd](https://github.com/Descent098/ahd)
-- [ ] Replace all instances of package_name in this file
-- [ ] Finish creating setup.py
-- [ ] Update mkdocs.yml or remove it if you don't intend to have user docs. Take a look at [ahd](https://ahd.readthedocs.io/en/latest/) for a great example of setting up the [docs folder](https://github.com/Descent098/ahd/tree/master/docs) and configuring [mkdocs.yml](https://github.com/Descent098/ahd/blob/master/mkdocs.yml)
-- [ ] Fill out [features & Roadmap section](#features--roadmap)
-- [ ] Fill out [quick start](#quick-start)
-- [ ] Create the actual package code
-- [ ] Fill out or remove the following sections
-  - [ ] [What does package_name do?](#what-does-package_name-do)
-  - [ ] [Examples](#examples)
-  - [ ] [Why should I use package_name?](#why-should-i-use-package_name)
-  - [ ] [Who is package_name for?](#who-is-package_name-for)
-  - [ ] [Arguments](#arguments)
-  - [ ] [Additional documentation](#additional-documentation)
-- [ ] Remove [From PyPi](#from-pypi) section if you don't intend to publish it to PyPi
-- [ ] Remove any outstanding sections from [Table of Contents](#table-of-contents)
-- [ ] Fill out CONTRIBUTING.md
-- [ ] Fill out CHANGELOG.md
-- [ ] Create tests, see [creating tests](#creating-tests) if you have never made tests before
-- [ ] Do (or don't) final touches, then remove this whole section from your readme
-
-## Final Touches
-
-These are all optional extras you can do to make your project better, you can either do them or just delete this whole section.
-
-### Uploading to PyPi
-
-Now that you have finished the todo section (and assuming you want people to be able to pip install without downloading the source) it can be published on [PyPi](https://pypi.org/) by first signing up for an account, then running ```nox -s release```. The release session will build a distribution, prompt you to make sure you have filled out all the information necessary and then start the upload to PyPi (you will then have to login to PyPi through the command line).
-
-### ReadTheDocs
-
-There are some optional extras, for example if you signup for a [readthedocs](https://readthedocs.org/) account you can host your documentation with a single click. Alternatively if you want to use a custom theme for your documentation you can use github pages and run ```mkdocs gh-deploy``` which will do the documentation building for you. From there you can follow [this guide](https://help.github.com/en/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site) to setup your github pages for your project, by default running ```mkdocs gh-deploy``` will create a gh-pages branch for you so you can just hit that checkbox in the repositories settings to get setup.
-
-### Auto generated API docs
-
-If you have written an API and want to use API documentation that autobuilds based on docstrings [like sdu](https://kieranwood.ca/sdu/), I would highly recommend [pdoc3](https://pypi.org/project/pdoc3/). This package will allow you to build the docs very easily, check out [their documentation](https://pdoc3.github.io/pdoc/) for details.
-
-### Creating tests
-
-If you have never created tests before, take a look at the [pytest docs](https://docs.pytest.org/en/stable/) and [this video](https://www.youtube.com/watch?v=bbp_849-RZ4) or [this video](https://www.youtube.com/watch?v=byaxg00Gf9I).
-
-### Setting up deepsource.io
-
-[Deepsource.io](https://deepsource.io) is an incrediby useful tool I have found that will scan your github repo and warn you about potential security issues, anti-patterns, and style guide infractions you've made. It is completely free for pulic repo's and has saved me a few times from some prety big mistakes.
-
----
-
 ## Table of Contents
-- [What does package_name do?](#what-does-package_name-do)
+- [What does ezshortcut do?](#what-does-ezshortcut-do)
 - [Features & Roadmap](#features--roadmap)
-- [Why should I use package_name?](#why-should-i-use-package_name)
-- [Who is package_name for?](#who-is-package_name-for)
+- [Why should I use ezshortcut?](#why-should-i-use-ezshortcut)
 - [Quick-start](#quick-start)
     - [Installation](#installation)
       - [From source](#from-source)
       - [From PyPi](#from-pypi)
       - [Examples](#examples)
-- [Usage](#usage)
-    - [Arguments](#arguments)
 - [Additional Documentation](#additional-documentation)
 
-## What does package_name do?
+## What does ezshortcut do?
 
-*Provide a brief exposition on what the purpose of your package is, or change this heading to goals (like [sdu](https://github.com/Descent098/sdu#goals))*
+Ez shortcut is a simple API with one primary function that lets you setup shortcuts to executables, or to folders.
 
 ## Features & Roadmap
 
-*Include a bullet point list of implemented features, and either a link to the github planning board or list of coming-soon features*
+The primary features include:
+- Cross platform shortcut generation
+- Creting folder shortcuts
+- Creating executable shortcuts
 
-## Why should I use package_name?
+The full roadmap can be found [here](https://github.com/Descent098/ezshortcut/projects).
 
-*If there are well-known alternatives provide details about why people should use your package instead*
+## Why should I use ezshortcut?
 
-## Who is package_name for?
-
-*If your package has multiple uses in seperate domains it may be worth explaning use cases in different domains; see [ahd](https://github.com/Descent098/ahd#who-is-ahd-for) for example*
+Ez shortcut is definately the simplest way to setup shortcuts to generic binaries, and/or folder links in python. If however you are looking to make a shortcut to a python script, then checkout [pyshortcuts](https://github.com/newville/pyshortcuts).
 
 ## Quick-start
-
-*Include how people can get started using your project in the shortest time possible*
 
 ### Installation
 
 #### From source
 
-1. Clone this repo: (put github/source code link here)
+1. Clone this repo: https://github.com/Descent098/ezshortcut
 2. Run ```pip install .``` or ```sudo pip3 install .```in the root directory
 
 #### From PyPi
 
-1. Run ```pip install package_name```
+1. Run ```pip install ezshortcut```
 
 #### Examples
 
-*Include an example or two of usage, or common use cases*
+*Creating a folder shortcut to the Documets folder on the desktop with the minimum necessary fields*
+```python
+import os
+from ezshortcut import create_shortcut
 
-## Usage
+# Get the documents folder dependent on OS
+DOCUMENTS_FOLDER = f"{os.getenv('USERPROFILE')}\\Documents" if os.name == 'nt' else f"{os.getenv('HOME')}/Documents"
 
-*Include how to use your package as an API (if that's what you're going for)*
+create_shortcut("Documents", DOCUMENTS_FOLDER) # Create shortcut on desktop called Documents
+```
 
-### Arguments
+*Creating an executable shortcut to blender 2.82 on windows with minimum necessary fields*
+```python
+import os
+from ezshortcut import create_shortcut
 
-*If you are writing a script, include some helpful/often used arguments here. If you decide to use [docopt](http://docopt.org/) the usage string should do.* 
+# The directory you want to open the executable from
+WORKING_DIR = f"{os.getenv('USERPROFILE')}\\Documents"
+
+# Get the blender path dependent on windows
+BLENDER_PATH = f"{os.getenv('ProgramFiles')}\\Blender Foundation\\Blender 2.82\\blender.exe"
+
+create_shortcut("Blender", WORKING_DIR, executable=BLENDER_PATH) # Create shortcut on desktop called Blender
+```
+
+*Creating an executable shortcut on the desktop with all fields possible*
+
+```python
+import os
+from ezshortcut import create_shortcut
+
+# The directory you want to open the executable from
+WORKING_DIR = f"{os.getenv('USERPROFILE')}\\Documents"
+
+# Get the blender path dependent on windows
+BLENDER_PATH = f"{os.getenv('ProgramFiles')}\\Blender Foundation\\Blender 2.82\\blender.exe"
+
+# The folder to put the shortcut in 
+SHORTCUT_PATH = f"{os.getenv('USERPROFILE')}\\Desktop"
+
+# The path to a custom icon file (.ico on win/linux, .icns on MacOS)
+ICON_PATH = "path\\to\\icon.ico"
+
+create_shortcut("Blender", WORKING_DIR, SHORTCUT_PATH, BLENDER_PATH, ICON_PATH) # Create shortcut on desktop called Documents
+```
 
 ## Additional Documentation
 
-*If you have any supplementary documentation elsewhere (i.e. https://readthedocs.org/) include references to it here.*
+Full API docs can be found at [https://kieranwood.ca/ezshortcut](https://kieranwood.ca/ezshortcut)

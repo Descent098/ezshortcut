@@ -105,3 +105,8 @@ venv.bak/
 
 # Nox files
 .nox/*
+
+# Test run binary files
+.plist
+.desktop
+.lnk
